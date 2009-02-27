@@ -19,9 +19,9 @@ require 'finance'
 task :default => 'spec:run'
 
 PROJ.name = 'finance'
-PROJ.authors = 'FIXME (who is writing this software)'
-PROJ.email = 'FIXME (your e-mail)'
-PROJ.url = 'FIXME (project homepage)'
+PROJ.authors = 'Steve Walker'
+PROJ.email = 'swalker@walkertek.com'
+PROJ.url = 'http://www.stephenwalker.com'
 PROJ.version = Finance::VERSION
 PROJ.rubyforge.name = 'finance'
 

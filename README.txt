@@ -1,26 +1,29 @@
 finance
-    by FIXME (your name)
-    FIXME (url)
+    by Steve Walker
+    www.stephenwalker.com
+    swalker@walkertek.com
 
 == DESCRIPTION:
 
-FIXME (describe your package)
+Calculate some fundemantal finance calculations
 
 == FEATURES/PROBLEMS:
 
-* FIXME (list of features or problems)
+Calculates present_value, future_value, cagr and mortgage_payment
 
 == SYNOPSIS:
 
-  FIXME (code sample of usage)
+require 'finance'
+c = Calculate.new
+payment = c.mortgage_payment(200000, 0.065, 30) => 1264.14
 
 == REQUIREMENTS:
 
-* FIXME (list of requirements)
+ruby, bigdecimal
 
 == INSTALL:
 
-* FIXME (sudo gem install, anything else)
+sudo gem install finance
 
 == LICENSE:
 

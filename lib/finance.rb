@@ -1,3 +1,4 @@
+require 'bigdecimal'
 
 module Finance
 
@@ -40,6 +41,32 @@ module Finance
         ::File.join(::File.dirname(fname), dir, '**', '*.rb'))
 
     Dir.glob(search_me).sort.each {|rb| require rb}
+  end
+
+  class Calculate
+
+    def present_value(amount, rate = 0.06, timeframe = 1)
+      round(BigDecimal.new((amount / (1 + rate) ** timeframe).to_s))
+    end
+
+    def future_value(amount, rate = 0.06, timeframe = 1)
+      round(BigDecimal.new((amount * (1 + rate) ** timeframe).to_s))
+    end
+
+    def cagr(current_amount, future_amount, timeframe) 
+      BigDecimal.new((((future_amount / current_amount) ** (1 / timeframe.to_f)) - 1).to_s)
+    end
+
+    def mortgage_payment(amount, rate = 0.06, timeframe = 15)
+      monthly_rate = rate / 12
+      payment = (monthly_rate / (1 - (1 + monthly_rate) ** (-timeframe * 12))) * amount
+      round(BigDecimal.new(payment.to_s))
+    end
+
+    def round(amount, precision = 2)
+      amount.round(precision).to_f
+    end
+
   end
 
 end  # module Finance
