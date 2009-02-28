@@ -67,6 +67,17 @@ module Finance
       amount.round(precision).to_f
     end
 
+    def rate(rate)
+      "#{rate * 100}%"
+    end
+
+    def money(money)
+      "$#{commify(money.to_f)}"
+    end
+
+    def commify(number)
+      number.to_s.reverse.gsub(/(\d\d\d)(?=\d)(?!\d*\.)/, '\1,').reverse;
+    end
   end
 
 end  # module Finance

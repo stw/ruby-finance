@@ -28,6 +28,18 @@ describe Calculate do
     true && @c.round((n+BigDecimal('0.0002')), 3).should == 84.567
   end
 
+  it "should commify a number with commas" do
+    @c.commify(1000000.02).should == "1,000,000.02"
+  end
+
+  it "should format money with a $ and commas" do
+    @c.money(1235433213.23).should == "$1,235,433,213.23"
+  end
+
+  it "should format a rate with %" do
+    @c.rate(0.06375).should == "6.375%"
+  end
+
   it "should calculate the present_value given the future amount, rate and timeframe" do
     @c.present_value(100, 0.06, 10).should == 55.84
   end
